@@ -16,19 +16,19 @@ export class AddTaskComponent implements OnInit {
   day!: string;
   reminder: boolean = false;
   selectedChoice: string = '';
+  assignChoice: string = '';
   showAddTask: boolean = false;
   subscription: Subscription;
   subscription2: Subscription;
-  choices: string[] = [
-    'Open         - task that are not yet owned',
-    'In Progress  - task that is being worked',
-    'Closed       - task that has been completed',
-  ];
+  asssignSChoice: string[] = ['azamss', 'aina', 'bang'];
+  choices: string[] = ['Open', 'In Progress', 'Closed'];
   tasks: Task = {
     id: undefined,
     text: '',
     day: '',
     reminder: false,
+    status: '',
+    assign: '',
   };
 
   constructor(private uiService: UiService, private taskService: TaskService) {
@@ -51,6 +51,7 @@ export class AddTaskComponent implements OnInit {
       day: '',
       reminder: false,
       status: '',
+      assign: '',
     };
     console.log(this.tasks.id);
 
@@ -60,6 +61,7 @@ export class AddTaskComponent implements OnInit {
       this.day = '';
       this.reminder = false;
       this.selectedChoice = '';
+      this.assignChoice = '';
     }
     return show;
   }
@@ -77,13 +79,12 @@ export class AddTaskComponent implements OnInit {
       return;
     }
 
-    console.log(this.selectedChoice);
-
     const newTask: Task = {
       text: this.text,
       day: this.day,
       reminder: this.reminder,
       status: this.selectedChoice,
+      assign: this.assignChoice,
     };
     const editTask: Task = {
       id: this.tasks.id,
@@ -91,6 +92,7 @@ export class AddTaskComponent implements OnInit {
       day: this.day,
       reminder: this.reminder,
       status: this.selectedChoice,
+      assign: this.assignChoice,
     };
     this.tasks.id !== undefined
       ? this.onEditTask.emit(editTask)
@@ -102,12 +104,14 @@ export class AddTaskComponent implements OnInit {
       day: '',
       reminder: false,
       status: '',
+      assign: '',
     };
 
     this.text = '';
     this.day = '';
     this.reminder = false;
     this.selectedChoice = '';
+    this.assignChoice = '';
   }
   setDef(tasks: Task[]): void {
     this.tasks = tasks[0];
@@ -117,11 +121,8 @@ export class AddTaskComponent implements OnInit {
     tasks[0].status !== undefined
       ? (this.selectedChoice = tasks[0].status)
       : (this.selectedChoice = '');
-  }
-  onNgxSelectDropdownSelect(select: string) {
-    this.selectedChoice = select;
-    console.log(this.selectedChoice);
-    console.log("yooo");
-    ;
+    tasks[0].assign !== undefined
+      ? (this.assignChoice = tasks[0].assign)
+      : (this.assignChoice = '');
   }
 }

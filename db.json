@@ -5,13 +5,16 @@
       "text": "aaaa",
       "day": "aaaa",
       "reminder": false,
-      "status": "Open         - task that are not yet owned"
+      "status": "In Progress",
+      "assign": "azamss"
     },
     {
+      "id": 25,
       "text": "aaaa",
       "day": "ssss",
-      "reminder": true,
-      "id": 25
+      "reminder": false,
+      "status": "Open",
+      "assign": ""
     },
     {
       "text": "sss",

@@ -21,16 +21,28 @@
       [defaultValue]="tasks.day"
     />
   </div>
+
   <div class="form-control">
-    <label for="day-input">Status</label>
+    <label for="assign-input">Assigned To</label>
     <ngx-select-dropdown
-      value="This is the initial value"
       [multiple]="false"
-      [options]="choices" 
-      [(ngModel)]="selectedChoice"
-      [ngModelOptions]="{standalone: true}"
+      [options]="asssignSChoice"
+      [(ngModel)]="assignChoice"
+      [ngModelOptions]="{ standalone: true }"
     ></ngx-select-dropdown>
   </div>
+  
+  <div class="form-control">
+    <label for="status-input">Status</label>
+    <ngx-select-dropdown
+      [multiple]="false"
+      [options]="choices"
+      [(ngModel)]="selectedChoice"
+      [ngModelOptions]="{ standalone: true }"
+    ></ngx-select-dropdown>
+  </div>
+
+
 
   <div class="form-control form-control-check">
     <label for="reminder-input">Set Reminder</label>

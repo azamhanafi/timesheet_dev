@@ -121,7 +121,7 @@ export class AddTaskComponent implements OnInit {
   onNgxSelectDropdownSelect(select: string) {
     this.selectedChoice = select;
     console.log(this.selectedChoice);
-    console.log(this.selectedChoice);
+    console.log("yooo");
     ;
   }
 }

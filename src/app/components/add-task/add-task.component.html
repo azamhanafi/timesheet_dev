@@ -1,0 +1,46 @@
+<form *ngIf="showAddTask" class="add-form" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="text-input">Task</label>
+    <input
+      type="text"
+      name="text"
+      [(ngModel)]="text"
+      id="text-input"
+      placeholder="Add Task"
+      [defaultValue]="tasks.text"
+    />
+  </div>
+  <div class="form-control">
+    <label for="day-input">Project</label>
+    <input
+      type="text"
+      name="day"
+      [(ngModel)]="day"
+      id="day-input"
+      placeholder="Add Project"
+      [defaultValue]="tasks.day"
+    />
+  </div>
+  <div class="form-control">
+    <label for="day-input">Status</label>
+    <ngx-select-dropdown
+      value="This is the initial value"
+      [multiple]="false"
+      [options]="choices" 
+      [(ngModel)]="selectedChoice"
+      [ngModelOptions]="{standalone: true}"
+    ></ngx-select-dropdown>
+  </div>
+
+  <div class="form-control form-control-check">
+    <label for="reminder-input">Set Reminder</label>
+    <input
+      type="checkbox"
+      name="reminder"
+      [(ngModel)]="reminder"
+      id="reminder-input"
+      [defaultValue]="tasks.reminder"
+    />
+  </div>
+  <input type="submit" value="Save Task" class="btn btn-block" />
+</form>

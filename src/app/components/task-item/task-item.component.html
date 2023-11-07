@@ -1,17 +1,29 @@
-<div [ngClass]="{ reminder: task.reminder }" class="task" (dblclick)="onToggle(task)"> 
+<div
+  [ngClass]="{ reminder: task.reminder }"
+  class="task"
+  (dblclick)="onToggle(task)"
+>
   <h3>
-    {{ task.text }}
-    <div class="header2">
-      <fa-icon  [ngStyle]="{ color: 'grey' }" 
-      [icon]="faPenToSquare" 
-      (click)="onEdit(task)"></fa-icon>
-    
-      <fa-icon  [ngStyle]="{ color: 'red' }" 
-      [icon]="faTimes" 
-      (click)="onDelete(task)"></fa-icon>
-
+    <div class="maxxColumn">
+      <b>{{ task.text }}</b>
     </div>
+    <div>{{ task.fromDate | date : "yyyy-MM-dd" }}</div>
+    <div>{{ task.toDate | date : "yyyy-MM-dd" }}</div>
+    <div class="header3">
+      <fa-icon
+        style="font-size: 20px"
+        [ngStyle]="{ color: 'grey' }"
+        [icon]="faPenToSquare"
+        (click)="onEdit(task)"
+      ></fa-icon>
 
+      <fa-icon
+        style="font-size: 15px"
+        [ngStyle]="{ color: 'red' }"
+        [icon]="faTrashCan"
+        (click)="onDelete(task)"
+      ></fa-icon>
+    </div>
   </h3>
-  <p>{{ task.day }}</p>
+  <p>{{ task.day }}•{{ task.assign }}</p>
 </div>

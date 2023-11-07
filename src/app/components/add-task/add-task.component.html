@@ -22,6 +22,41 @@
     />
   </div>
 
+  <div class="parentDate">
+    <div class="form-control3">
+      <label for="day-input">Date From :</label>
+      <form>
+        <input
+          matInput
+          [matDatepicker]="picker2"
+          [readonly]="true"
+          placeholder="Choose a date"
+          [(ngModel)]="fromDate"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      </form>
+    </div>
+    <div class="form-control3">
+      <label for="day-input">Date To :</label>
+      <form>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          [readonly]="true"
+          placeholder="Choose a date"
+          [(ngModel)]="toDate"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      </form>
+    </div>
+  </div>
+
+
+
   <div class="form-control">
     <label for="assign-input">Assigned To</label>
     <ngx-select-dropdown
@@ -31,7 +66,7 @@
       [ngModelOptions]="{ standalone: true }"
     ></ngx-select-dropdown>
   </div>
-  
+
   <div class="form-control">
     <label for="status-input">Status</label>
     <ngx-select-dropdown
@@ -41,8 +76,6 @@
       [ngModelOptions]="{ standalone: true }"
     ></ngx-select-dropdown>
   </div>
-
-
 
   <div class="form-control form-control-check">
     <label for="reminder-input">Set Reminder</label>

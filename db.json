@@ -1,69 +1,24 @@
 {
   "tasks": [
     {
-      "id": 24,
+      "text": "f",
+      "day": "kkk",
+      "reminder": false,
+      "status": "Closed",
+      "assign": "azamss",
+      "fromDate": "2023-11-04T16:00:00.000Z",
+      "toDate": "2023-11-29T16:00:00.000Z",
+      "id": 37
+    },
+    {
       "text": "aaaa",
-      "day": "aaaa",
-      "reminder": false,
-      "status": "In Progress",
-      "assign": "azamss"
-    },
-    {
-      "id": 25,
-      "text": "aaaa",
-      "day": "ssss",
-      "reminder": false,
-      "status": "Open",
-      "assign": ""
-    },
-    {
-      "text": "sss",
-      "day": "ssss",
-      "reminder": false,
-      "id": 26
-    },
-    {
-      "text": "qqq",
-      "day": "qqqq",
-      "reminder": false,
-      "id": 27
-    },
-    {
-      "text": "aaa",
-      "day": "aaaa",
-      "reminder": false,
-      "id": 28
-    },
-    {
-      "text": "www",
-      "day": "www",
-      "reminder": false,
-      "id": 29
-    },
-    {
-      "text": "www",
-      "day": "www",
+      "day": "dddd",
       "reminder": true,
-      "id": 30
-    },
-    {
-      "text": "www",
-      "day": "wwwww",
-      "reminder": false,
-      "id": 31
-    },
-    {
-      "id": 32,
-      "text": "fff",
-      "day": "ffffssss",
-      "reminder": true
-    },
-    {
-      "text": "sss",
-      "day": "ssss",
-      "reminder": false,
-      "status": "Closed       - task that has been completed",
-      "id": 33
+      "status": "Closed",
+      "assign": "azamss",
+      "fromDate": "2023-11-19T16:00:00.000Z",
+      "toDate": "2023-11-26T16:00:00.000Z",
+      "id": 38
     }
   ]
 }

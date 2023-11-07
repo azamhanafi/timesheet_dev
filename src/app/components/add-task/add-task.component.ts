@@ -3,6 +3,8 @@ import { UiService } from '../../services/ui.service';
 import { Subscription } from 'rxjs';
 import { Task } from '../../Task';
 import { TaskService } from '../../services/task.service';
+import { FormControl } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-add-task',
@@ -18,6 +20,8 @@ export class AddTaskComponent implements OnInit {
   selectedChoice: string = '';
   assignChoice: string = '';
   showAddTask: boolean = false;
+  toDate!: Date;
+  fromDate!: Date;
   subscription: Subscription;
   subscription2: Subscription;
   asssignSChoice: string[] = ['azamss', 'aina', 'bang'];
@@ -29,7 +33,11 @@ export class AddTaskComponent implements OnInit {
     reminder: false,
     status: '',
     assign: '',
+    fromDate: new Date(Date.now()),
+    toDate: new Date(Date.now()),
   };
+
+  myFormControl = new FormControl();
 
   constructor(private uiService: UiService, private taskService: TaskService) {
     this.subscription = this.uiService
@@ -52,6 +60,8 @@ export class AddTaskComponent implements OnInit {
       reminder: false,
       status: '',
       assign: '',
+      fromDate: new Date(Date.now()),
+      toDate: new Date(Date.now()),
     };
     console.log(this.tasks.id);
 
@@ -62,6 +72,8 @@ export class AddTaskComponent implements OnInit {
       this.reminder = false;
       this.selectedChoice = '';
       this.assignChoice = '';
+      this.fromDate = new Date(Date.now());
+      this.toDate = new Date(Date.now());
     }
     return show;
   }
@@ -71,6 +83,7 @@ export class AddTaskComponent implements OnInit {
   ngOnDestroy() {
     // Unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
+    this.subscription2.unsubscribe();
   }
 
   onSubmit() {
@@ -78,13 +91,15 @@ export class AddTaskComponent implements OnInit {
       alert('Please add a task!');
       return;
     }
-
+    console.log(this.toDate);
     const newTask: Task = {
       text: this.text,
       day: this.day,
       reminder: this.reminder,
       status: this.selectedChoice,
       assign: this.assignChoice,
+      fromDate: this.fromDate,
+      toDate: this.toDate,
     };
     const editTask: Task = {
       id: this.tasks.id,
@@ -93,6 +108,8 @@ export class AddTaskComponent implements OnInit {
       reminder: this.reminder,
       status: this.selectedChoice,
       assign: this.assignChoice,
+      fromDate: this.fromDate,
+      toDate: this.toDate,
     };
     this.tasks.id !== undefined
       ? this.onEditTask.emit(editTask)
@@ -105,6 +122,8 @@ export class AddTaskComponent implements OnInit {
       reminder: false,
       status: '',
       assign: '',
+      fromDate: new Date(Date.now()),
+      toDate: new Date(Date.now()),
     };
 
     this.text = '';
@@ -112,6 +131,8 @@ export class AddTaskComponent implements OnInit {
     this.reminder = false;
     this.selectedChoice = '';
     this.assignChoice = '';
+    this.fromDate = new Date(Date.now());
+    this.toDate = new Date(Date.now());
   }
   setDef(tasks: Task[]): void {
     this.tasks = tasks[0];
@@ -124,5 +145,11 @@ export class AddTaskComponent implements OnInit {
     tasks[0].assign !== undefined
       ? (this.assignChoice = tasks[0].assign)
       : (this.assignChoice = '');
+      tasks[0].fromDate !== undefined
+      ? (this.fromDate = tasks[0].fromDate)
+      : (this.fromDate = new Date(Date.now()));
+      tasks[0].toDate !== undefined
+      ? (this.toDate = tasks[0].toDate)
+      : (this.toDate = new Date(0));
   }
 }

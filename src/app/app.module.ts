@@ -11,7 +11,13 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { SearchButtonComponent } from './components/search-button/search-button.component';
-import { SelectDropDownModule  } from 'ngx-select-dropdown';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TaskHeaderComponent } from './components/task-header/task-header.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +27,8 @@ import { SelectDropDownModule  } from 'ngx-select-dropdown';
     TasksComponent,
     TaskItemComponent,
     AddTaskComponent,
-    SearchButtonComponent
+    SearchButtonComponent,
+    TaskHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,10 +36,15 @@ import { SelectDropDownModule  } from 'ngx-select-dropdown';
     HttpClientModule,
     FormsModule,
     SelectDropDownModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NoopAnimationsModule,
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { 
-  tittle : string = 'Task tracker';
+export class AppModule {
+  tittle: string = 'Task tracker';
 }

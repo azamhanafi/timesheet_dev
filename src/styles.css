@@ -80,7 +80,7 @@ body {
 .form-control2 {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   margin: 10px 0;
   gap: 10px;
 }
@@ -117,6 +117,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  gap:10px;
+  gap:20px;
 
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

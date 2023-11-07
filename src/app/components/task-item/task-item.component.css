@@ -14,3 +14,22 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  .maxxColumn {
+    flex-grow: 1;
+    max-width: 150px;
+    font-size: 16px;
+  }
+
+  .header3 {
+    flex-grow: 1;
+    max-width: 100px;
+    font-size: 16px;
+    display: flex;
+    justify-content: right;
+    gap:20px;
+    align-items: center;
+  
+  }
+  
+  

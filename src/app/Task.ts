@@ -5,4 +5,6 @@ export interface Task {
     reminder: boolean;
     status ?: string;
     assign ?: string;
+    fromDate?: Date;
+    toDate? : Date
   }

@@ -122,5 +122,6 @@ export class AddTaskComponent implements OnInit {
     this.selectedChoice = select;
     console.log(this.selectedChoice);
     console.log(this.selectedChoice);
+    ;
   }
 }
